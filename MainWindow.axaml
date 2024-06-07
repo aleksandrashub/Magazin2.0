@@ -1,0 +1,66 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="session12.MainWindow"
+        Title="MainWindow">
+	<Grid
+	RowDefinitions="200, *, 300"
+	ColumnDefinitions="*, *">
+		<StackPanel
+			Grid.Row="0"
+			Grid.Column="1"
+			HorizontalAlignment="Right">
+			<Button
+				Margin="0, 20, 20, 0"
+				Width="150"
+				Height="30"
+				Click="Guest_Click"
+				HorizontalContentAlignment="Center"
+				Content="Войти как гость">
+			</Button>
+		</StackPanel>
+		<StackPanel
+			Grid.Row="1"
+			Grid.ColumnSpan="2"
+			HorizontalAlignment="Center"
+			Orientation="Vertical">
+			<TextBlock
+				HorizontalAlignment="Center"
+				Text="Вход">
+			</TextBlock>
+			<TextBox
+				Name="login"
+				KeyUp="login_OnKeyUp"
+				Margin="0, 10, 0, 0"
+				HorizontalAlignment="Center"
+				Width="170"
+				Height="30"
+				Watermark="Логин">
+			</TextBox>
+			<TextBox
+				Name="passwd"
+				KeyUp="passwd_OnKeyUp"
+				Margin="0, 10, 0, 0"
+				HorizontalAlignment="Center"
+				Width="170"
+				Height="30"
+				Watermark="Пароль">
+			</TextBox>
+			<Button
+				Margin="0, 10, 0, 0"
+				Content="Войти"
+				HorizontalContentAlignment="Center"
+				HorizontalAlignment="Center"
+				Width="90"
+				Height="30"
+				Click="Authorization_Click">
+			</Button>
+			<TextBlock
+				TextAlignment="Center"
+				Name="errorMessage">
+			</TextBlock>
+		</StackPanel>
+	</Grid>
+</Window>

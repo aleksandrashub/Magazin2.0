@@ -1,0 +1,233 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="session12.Catalog"
+        Title="Catalog"
+		x:CompileBindings="False">
+	<ScrollViewer>
+	<Grid
+		  Name="firstgrid" 
+		  RowDefinitions="200, Auto">
+		<StackPanel
+			Grid.Row="0">
+			<Button
+				Name="addTovarBtn"
+				Click="AddProduct_Click"
+				Content="Добавить товар">
+			</Button>
+			<Button
+				Click="VyhodBtn_Click"
+				Content="Выйти">
+			</Button>
+			<Button
+				Click="KorzinaBtn_Click"
+				Content="В корзину">
+			</Button>
+			<StackPanel
+			Grid.Row="0"
+			HorizontalAlignment="Center">
+				<TextBlock
+					Text="Выберите производителя">
+				</TextBlock>
+				<ComboBox
+					Name="manufacturersComboBox"
+					Margin="0, 5, 0, 0"
+					Width="150"
+					SelectionChanged="manufacturer_Select"
+					x:CompileBindings="False">
+					<ComboBox.ItemTemplate>
+						<DataTemplate
+							x:CompileBindings="False">
+							<TextBlock Text="{Binding StringFormat=manufacturers}"/>
+						</DataTemplate>
+					</ComboBox.ItemTemplate>
+				</ComboBox>
+				<TextBlock
+					Text="Выберите сортировку по цене">
+				</TextBlock>
+				<ComboBox
+					Name="priceFilter"
+					Margin="0, 5, 0, 0"
+					Width="150"
+					SelectionChanged="price_Select"
+					x:CompileBindings="False">
+					<ComboBoxItem>Снять сортировку</ComboBoxItem>
+					<ComboBoxItem>По возрастанию</ComboBoxItem>
+					<ComboBoxItem>По убыванию</ComboBoxItem>
+				</ComboBox>
+				<TextBlock
+					Name="kolvoTovarov">
+				</TextBlock>
+			</StackPanel>
+			<StackPanel
+				Grid.Row="0"
+				HorizontalAlignment="Right">
+				<TextBox
+					Watermark="Введите значение для поиска"
+					Width="250"
+					Name="poisk"
+					KeyUp="Poisk_OnKeyUp">
+				</TextBox>
+			</StackPanel>
+		</StackPanel>
+		<ScrollViewer
+			Grid.Row="1">
+		<ListBox
+			SelectionChanged="selectToEdit_Click"
+			SelectionMode="Single"
+			Name="ProductsList">
+				<ListBox.ItemTemplate>
+					<DataTemplate>
+							<Grid
+								ShowGridLines="True">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="*"/>
+									<ColumnDefinition Width="2*"/>
+									<ColumnDefinition Width="*"/>
+									<ColumnDefinition Width="*"/>
+								</Grid.ColumnDefinitions>
+								<StackPanel
+									Grid.Column="0">
+									<Border
+										HorizontalAlignment="Stretch"
+										BorderThickness="1"
+										BorderBrush="Black">
+										<Image
+											Width="200"
+											Height="200"
+										Source="{Binding image}">
+										</Image>
+									</Border>
+								</StackPanel>
+								<StackPanel
+									HorizontalAlignment="Center"
+									Grid.Column="1">
+									<Border
+										HorizontalAlignment="Stretch"
+										BorderThickness="1"
+										BorderBrush="Black">
+										<Grid
+											Grid.Column="1"
+											HorizontalAlignment="Center"
+											Margin="10"
+											RowDefinitions="80, 100, 40, 40"
+											ColumnDefinitions="200,500">
+											<TextBlock
+												FontSize="20"
+												Grid.Row="0"
+												Grid.Column="0"
+												TextWrapping="Wrap"
+												Text="Наименование товара">
+											</TextBlock>
+											<TextBlock
+												Grid.Row="1"
+												FontSize="20"
+												TextWrapping="Wrap"
+												Grid.Column="0"
+												Text="Описание товара">
+											</TextBlock>
+											<TextBlock
+												FontSize="20"
+												Grid.Row="2"
+												Grid.Column="0"
+												Text="Производитель">
+											</TextBlock>
+											<TextBlock
+												FontSize="20"
+												Grid.Row="3"
+												Grid.Column="0"
+												Text="Цена">
+											</TextBlock>
+											<TextBlock
+												Margin="20, 0, 0, 0"
+												FontSize="20"
+												Grid.Row="0"
+												Grid.Column="1"
+												Text="{Binding name}">
+											</TextBlock>
+											<TextBlock
+												Margin="20, 0, 0, 0"
+												Grid.Row="1"
+												FontSize="20"
+												Grid.Column="1"
+												TextWrapping="Wrap"
+												Text="{Binding description}">
+											</TextBlock>
+											<TextBlock
+												Margin="20, 0, 0, 0"
+												FontSize="20"
+												Grid.Row="2"
+												Grid.Column="1"
+												Text="{Binding manufacturer}">
+											</TextBlock>
+											<TextBlock
+												Margin="20, 0, 0, 0"
+												Grid.Row="3"
+												FontSize="20"
+												Grid.Column="1"
+												Text="{Binding price}">
+											</TextBlock>
+										</Grid>
+									</Border>
+								</StackPanel>
+								<Border
+									Grid.Column="2"
+										HorizontalAlignment="Stretch"
+										BorderThickness="1"
+										BorderBrush="Black">
+									<StackPanel
+											Grid.Column="2">
+
+										<Grid
+											ColumnDefinitions="2*,*">
+											<TextBlock
+												Grid.Column="0"
+												FontSize="20"
+												Text="Наличие на складе: ">
+											</TextBlock>
+											<StackPanel
+												Orientation="Horizontal"
+												HorizontalAlignment="Stretch"
+												Grid.Column="1">
+												<TextBlock
+													FontSize="20"
+													Text="{Binding quantity}">
+												</TextBlock>
+												<TextBlock
+													FontSize="20"
+													Text="{Binding units}">
+												</TextBlock>
+											</StackPanel>
+										</Grid>
+									</StackPanel>
+								</Border>
+								<StackPanel
+											Grid.Column="3">
+									<Button
+											Tag="{Binding id}"
+											Content="Добавить в корзину"
+											Height="25"
+											Name="AddToKorzinaBtn"
+											Click="AddToKorzBtn_OnClick"
+											Margin="60, 0, 0, 0"
+											Width="90">
+									</Button>
+									<Button
+										Tag="{Binding id}"
+										Height="25"
+										Content="Удалить из каталога"
+										Click="DelBtn_Click"
+										Margin="60, 0, 0, 0"
+										Width="90">
+									</Button>
+								</StackPanel>
+							</Grid>
+					</DataTemplate>
+				</ListBox.ItemTemplate>
+			</ListBox>
+		</ScrollViewer>
+		</Grid>
+</ScrollViewer>
+	</Window>

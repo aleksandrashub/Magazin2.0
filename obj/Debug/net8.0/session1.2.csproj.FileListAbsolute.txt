@@ -1,0 +1,12 @@
+C:\Users\prdb\Desktop\session1.2\obj\Debug\net8.0\session1.2.csproj.AssemblyReference.cache
+C:\Users\prdb\Desktop\session1.2\obj\Debug\net8.0\Avalonia\Resources.Inputs.cache
+C:\Users\prdb\Desktop\session1.2\obj\Debug\net8.0\Avalonia\resources
+C:\Users\prdb\Desktop\session1.2\obj\Debug\net8.0\session1.2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\prdb\Desktop\session1.2\obj\Debug\net8.0\session1.2.AssemblyInfoInputs.cache
+C:\Users\prdb\Desktop\session1.2\obj\Debug\net8.0\session1.2.AssemblyInfo.cs
+C:\Users\prdb\Desktop\session1.2\obj\Debug\net8.0\session1.2.csproj.CoreCompileInputs.cache
+C:\Users\prdb\Desktop\session1.2\obj\Debug\net8.0\Avalonia\references
+C:\Users\prdb\Desktop\session1.2\obj\Debug\net8.0\Avalonia\original.dll
+C:\Users\prdb\Desktop\session1.2\obj\Debug\net8.0\Avalonia\original.pdb
+C:\Users\prdb\Desktop\session1.2\obj\Debug\net8.0\Avalonia\original.ref.dll
+C:\Users\prdb\Desktop\session1.2\obj\Debug\net8.0\refint\session1.2.dll

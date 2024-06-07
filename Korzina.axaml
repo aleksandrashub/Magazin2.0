@@ -1,0 +1,251 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="session12.Korzina"
+        Title="Korzina">
+	<ScrollViewer>
+	<Grid
+				   Background="FloralWhite"
+				   Name="grid"
+				   ColumnDefinitions="*, *"
+				   RowDefinitions="50, *">
+		<StackPanel
+				Orientation="Horizontal"
+		Margin="20, 20, 0, 0"
+		Grid.Row="0"
+				Grid.Column="0">
+			<TextBlock
+					VerticalAlignment="Center"
+					Text="Товары в корзине">
+			</TextBlock>
+		</StackPanel>
+		<StackPanel
+				Grid.Column="2"
+				Orientation="Horizontal"
+				HorizontalAlignment="Right">
+			<Button
+					Background="DarkCyan"
+					HorizontalAlignment="Right"
+					VerticalAlignment="Center"
+					Content="Вернуться к каталогу"
+					Click="ReturnProdEdit_Click">
+			</Button>
+			<Button
+					HorizontalAlignment="Right"
+					Margin="20, 0, 0, 0"
+					VerticalAlignment="Center"
+					Content="Выход"
+					Click="Exit_Click">
+			</Button>
+		</StackPanel>
+		<StackPanel
+				Margin="0, 30, 0, 0"
+				Name="stackPanelBtns"
+				Orientation="Vertical"
+				HorizontalAlignment="Center"
+				Grid.Column="1"
+				Grid.Row="1">
+
+
+		</StackPanel>
+		<StackPanel
+				Margin="0, 30, 0, 0"
+				Name="stackPanelQuantity"
+				Orientation="Vertical"
+				HorizontalAlignment="Left"
+				Grid.Column="1"
+				Grid.Row="1">
+		</StackPanel>
+		<StackPanel
+			Orientation="Vertical"
+				Margin="0, 30, 0, 0"
+				Grid.Column="0"
+					Grid.ColumnSpan="2"
+				Grid.Row="1">
+			<StackPanel
+				Orientation="Horizontal">
+				<ListBox
+						Background="FloralWhite"
+						HorizontalAlignment="Stretch"
+						SelectionMode="Single"
+						Name="ProdListInKorz">
+					<ListBox.ItemTemplate>
+						<DataTemplate
+							x:CompileBindings="False">
+							<Grid
+							ShowGridLines="True">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="*"/>
+									<ColumnDefinition Width="2*"/>
+									<ColumnDefinition Width="*"/>
+									<ColumnDefinition Width="*"/>
+								</Grid.ColumnDefinitions>
+								<StackPanel
+									Grid.Column="0">
+									<Border
+										HorizontalAlignment="Stretch"
+										BorderThickness="1"
+										BorderBrush="Black">
+										<Image
+											Width="200"
+											Height="200"
+										Source="{Binding image}">
+										</Image>
+									</Border>
+								</StackPanel>
+								<StackPanel
+									HorizontalAlignment="Center"
+									Grid.Column="1">
+									<Border
+										HorizontalAlignment="Stretch"
+										BorderThickness="1"
+										BorderBrush="Black">
+										<Grid
+											Grid.Column="1"
+											HorizontalAlignment="Center"
+											Margin="10"
+											RowDefinitions="80, 100, 40, 40"
+											ColumnDefinitions="200,500">
+											<TextBlock
+												FontSize="20"
+												Grid.Row="0"
+												Grid.Column="0"
+												TextWrapping="Wrap"
+												Text="Наименование товара">
+											</TextBlock>
+											<TextBlock
+												Grid.Row="1"
+												FontSize="20"
+												TextWrapping="Wrap"
+												Grid.Column="0"
+												Text="Описание товара">
+											</TextBlock>
+											<TextBlock
+												FontSize="20"
+												Grid.Row="2"
+												Grid.Column="0"
+												Text="Производитель">
+											</TextBlock>
+											<TextBlock
+												FontSize="20"
+												Grid.Row="3"
+												Grid.Column="0"
+												Text="Цена">
+											</TextBlock>
+											<TextBlock
+												Margin="20, 0, 0, 0"
+												FontSize="20"
+												Grid.Row="0"
+												Grid.Column="1"
+												Text="{Binding name}">
+											</TextBlock>
+											<TextBlock
+												Margin="20, 0, 0, 0"
+												Grid.Row="1"
+												FontSize="20"
+												Grid.Column="1"
+												TextWrapping="Wrap"
+												Text="{Binding description}">
+											</TextBlock>
+											<TextBlock
+												Margin="20, 0, 0, 0"
+												FontSize="20"
+												Grid.Row="2"
+												Grid.Column="1"
+												Text="{Binding manufacturer}">
+											</TextBlock>
+											<TextBlock
+												Margin="20, 0, 0, 0"
+												Grid.Row="3"
+												FontSize="20"
+												Grid.Column="1"
+												Text="{Binding price}">
+											</TextBlock>
+										</Grid>
+									</Border>
+								</StackPanel>
+								<StackPanel
+									HorizontalAlignment="Center"
+									Grid.Column="2">
+									<Border
+										HorizontalAlignment="Stretch"
+										BorderThickness="1"
+										BorderBrush="Black">
+										<Grid
+											ColumnDefinitions="2*,*">
+											<TextBlock
+												Grid.Column="0"
+												FontSize="20"
+												Text="Наличие на складе: ">
+											</TextBlock>
+											<StackPanel
+												Orientation="Horizontal"
+												HorizontalAlignment="Stretch"
+												Grid.Column="1">
+												<TextBlock
+													FontSize="20"
+													Text="{Binding quantity}">
+												</TextBlock>
+												<TextBlock
+													FontSize="20"
+													Text="{Binding units}">
+												</TextBlock>
+											</StackPanel>
+										</Grid>
+										</Border>
+									</StackPanel>
+							
+								<StackPanel
+									Grid.Column="3">
+									<Button
+										Tag="{Binding id}"
+										Click="UmenBtn_OnClick"
+										Width="30"
+										Content="-">
+									</Button>
+									<TextBlock
+										Width="30"
+										Text="{Binding quantitySelect}">
+									</TextBlock>
+									<Button
+										Tag="{Binding id}"
+										Click="UvelBtn_OnClick"
+										Width="30"
+										Content="+">
+									</Button>
+									<Button
+											Tag="{Binding id}"
+											Height="25"
+											Content="Удалить"
+											Click="DelBtn_Click"
+											Margin="60, 0, 0, 0"
+											Width="90">
+									</Button>
+								</StackPanel>
+							</Grid>
+						</DataTemplate>
+					</ListBox.ItemTemplate>
+				</ListBox>
+			</StackPanel>
+			
+		</StackPanel>
+		<StackPanel
+				
+				Orientation="Vertical">
+			<Button
+					Name="PodschetOrderBtn"
+					Content="OK"
+					Click="PodschetOrderBtn_Click">
+			</Button>
+			<StackPanel
+					Orientation="Horizontal">
+				<TextBlock
+						Name="podschetstoimosti">
+				</TextBlock>
+			</StackPanel>
+		</StackPanel>
+	</Grid>
+</ScrollViewer>
+</Window>

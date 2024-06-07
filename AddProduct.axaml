@@ -1,0 +1,86 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="session12.AddProduct"
+        Title="AddProduct">
+	<Grid
+		  ColumnDefinitions="200, *">
+		<StackPanel
+			Grid.Column="0">
+			<TextBox
+				Width="200"
+				Name="namePr"
+				Watermark="Наименование продукта">
+			</TextBox>
+			<TextBox
+				Grid.Column="0"
+				Width="200"
+				Name="kolvoPr"
+					Watermark="Количество продукта">
+			</TextBox>
+			<TextBox
+				Grid.Column="0"
+				Width="200"
+				Name="unitsPr"
+					Watermark="Единицы измерения">
+			</TextBox>
+			<TextBox
+				Grid.Column="0"
+				Width="200"
+				Name="manufPr"
+					Watermark="Производитель">
+			</TextBox>
+			<TextBox
+				Grid.Column="0"
+				Width="200"
+				Name="pricePr"
+				Watermark="Цена товара">
+			</TextBox>
+			<TextBox
+				Grid.Column="0"
+				Width="200"
+				Height="120"
+				Name="descrPr"
+				Watermark="Описание">
+			</TextBox>
+			<Button
+				Click="AddOk_Click"
+				Content="Готово">
+			</Button>
+		</StackPanel>
+		<StackPanel
+			Grid.Column="1">
+			<TextBlock
+				Text="Р’С‹Р±РµСЂРёС‚Рµ РєР°С‚РµРіРѕСЂРёСЋ:">
+			</TextBlock>
+			<ComboBox
+				x:CompileBindings="False"
+				Name="categoriesComboBox"
+				Margin="0, 5, 0, 0"
+				SelectedItem="{Binding category}">
+				<ComboBox.ItemTemplate>
+					<DataTemplate>
+						<TextBlock
+							Name="nameCategory"
+							Text="{Binding StringFormat=categories}"
+							Width="60"
+							Height="15">
+						</TextBlock>
+					</DataTemplate>
+				</ComboBox.ItemTemplate>
+			</ComboBox>
+			<Image
+				Height="100"
+				Width="100"
+				Name="imageAdd">
+			</Image>
+			<Button
+				Click="AddTovarImg_Click"
+				Content="Добавить изображение товара">
+			</Button>
+		</StackPanel>
+	</Grid>
+
+</Window>
